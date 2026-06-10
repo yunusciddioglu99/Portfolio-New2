@@ -237,6 +237,27 @@ function isValidEmail(email) {
     return emailRegex.test(email);
 }
 
+// Equal card heights — fix .project-content height so button never moves
+function equaliseCardHeights() {
+    const contents = document.querySelectorAll('.project-content');
+    contents.forEach(c => c.style.height = '');
+    const max = Math.max(...Array.from(contents).map(c => c.offsetHeight));
+    contents.forEach(c => c.style.height = max + 'px');
+}
+
+document.addEventListener('DOMContentLoaded', equaliseCardHeights);
+window.addEventListener('resize', equaliseCardHeights);
+
+// Read More / Collapse toggle for project cards
+function toggleReadMore(btn) {
+    const content = btn.closest('.project-content');
+    const collapsible = content.nextElementSibling;
+    const isOpen = collapsible.classList.contains('expanded');
+    collapsible.classList.toggle('expanded', !isOpen);
+    btn.classList.toggle('open', !isOpen);
+    btn.innerHTML = (!isOpen ? 'Minder info' : 'Meer info') + ' <span class="arrow">&#9660;</span>';
+}
+
 // Console Welcome Message
 console.log('%c Welcome to Yunus Ciddioglu Portfolio! ', 'background: #3b82f6; color: white; font-size: 16px; padding: 10px; border-radius: 5px;');
 console.log('%c Built with HTML, CSS, and JavaScript ', 'background: #1e40af; color: white; font-size: 12px; padding: 8px; border-radius: 5px;');

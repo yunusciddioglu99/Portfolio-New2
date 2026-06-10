@@ -246,6 +246,18 @@ body {
     color: white;
 }
 
+.btn-disabled {
+    background: var(--bg-tertiary);
+    color: var(--text-secondary);
+    cursor: not-allowed;
+    border: 1px solid var(--border-color);
+}
+
+.btn-disabled:hover {
+    transform: none;
+    box-shadow: none;
+}
+
 /* Section Styles */
 section {
     padding: 80px 0;
@@ -363,9 +375,10 @@ section {
 }
 
 .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     gap: 30px;
+    align-items: flex-start;
 }
 
 .project-card {
@@ -375,6 +388,10 @@ section {
     box-shadow: var(--shadow-md);
     transition: all 0.3s ease;
     border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 350px;
+    min-width: 0;
 }
 
 .project-card:hover {
@@ -406,6 +423,17 @@ section {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.project-image-logo {
+    background: #ffffff;
+    padding: 20px;
+}
+
+.turna-logo-img {
+    object-fit: contain !important;
+    max-width: 90%;
+    max-height: 90%;
 }
 
 .project-image video {
@@ -504,7 +532,11 @@ section {
 
 .project-content {
     padding: 30px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
+
 
 .project-content h3 {
     font-size: 1.5rem;
@@ -544,13 +576,50 @@ section {
     margin-top: 20px;
 }
 
-.project-card:nth-child(1) .project-1-links {
-    margin-top: 70px;
-}
-
 .project-1-links .btn-small {
     padding: 12px 30px;
     font-size: 16px;
+}
+
+/* Collapsible project body */
+.project-collapsible {
+    overflow: hidden;
+    max-height: 0;
+    padding: 0 30px;
+    transition: max-height 0.4s ease;
+}
+
+.project-collapsible.expanded {
+    max-height: 600px;
+}
+
+.read-more-btn {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 6px 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: auto;
+    padding-top: 12px;
+    transition: opacity 0.2s ease;
+}
+
+.read-more-btn:hover {
+    opacity: 0.75;
+}
+
+.read-more-btn .arrow {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.read-more-btn.open .arrow {
+    transform: rotate(180deg);
 }
 
 /* Project Details Styling */
@@ -748,9 +817,12 @@ section {
         padding: 0 20px;
     }
     
-    .skills-grid,
-    .projects-grid {
+    .skills-grid {
         grid-template-columns: 1fr;
+    }
+
+    .projects-grid {
+        flex-direction: column;
     }
     
     .hero-buttons {

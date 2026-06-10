@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yunus Ciddioglu - Software Developer</title>
-    <script src="script.js" defer></script>
-    <link rel="stylesheet" href="styles.css">
+    <script src="script.js?v=3" defer></script>
+    <link rel="stylesheet" href="styles.css?v=3">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
@@ -115,25 +115,41 @@
             <div class="projects-grid">
                 <!-- EDITABLE: Add your projects here -->
                 <div class="project-card">
-                    <div class="project-image">
-                        <img src="images/figma.png" alt="Figma App Design">
+                    <div class="project-image project-image-logo">
+                        <img src="images/vangplan-logo.png" alt="Turna B.V. - Vangplan Systeem" class="turna-logo-img">
                     </div>
                     <div class="project-content">
-                        <h3>Figma App Design</h3>
+                        <h3>Turna B.V. - Vangplan Systeem</h3>
                         <p>
-                            Een sociale media-achtige app voor de Indische Buurt in Amsterdam. Bewoners kunnen infrastructuurproblemen 
-                            melden (zoals kapotte stoepen, vuilnisbakken, etc.) en de community stemt op de belangrijkste problemen. 
-                            De overheid kan de app gebruiken om problemen prioriteren en sneller op te lossen. Gebruikers verdienen punten 
-                            voor hun meldingen die ingewisseld kunnen worden voor beloningen.
+                            Full-stack webapplicatie voor pluimveebedrijf Turna B.V. voor het beheren van weekplanningen, werkbonnen, facturatie, 
+                            kilometerregistratie, omzetanalyse, werknemers, uren en verlofbeheer. Het systeem automatiseert administratieve processen 
+                            en biedt real-time inzicht in bedrijfsgegevens.
                         </p>
-                        <div class="project-tech">
-                            <span>Figma</span>
-                            <span>UI/UX Design</span>
-                            <span>Mobile App Design</span>
-                            <span>User Research</span>
+                        <button class="read-more-btn" onclick="toggleReadMore(this)">Meer info <span class="arrow">&#9660;</span></button>
+                    </div>
+                    <div class="project-collapsible">
+                        <div class="project-highlights">
+                            <div class="highlight-item">
+                                <strong>Facturatiesysteem:</strong> Automatisch facturen genereren, PDF met BTW/G-rekening, e-mail via SMTP
+                            </div>
+                            <div class="highlight-item">
+                                <strong>Km-rapport:</strong> Rittenregistratie met OpenStreetMap API, PDF-export per maand
+                            </div>
+                            <div class="highlight-item">
+                                <strong>Omzet Dashboard:</strong> Interactief dashboard met omzet per maand/kwartaal/jaar
+                            </div>
+                            <div class="highlight-item">
+                                <strong>Verlofregistratie:</strong> Verlofaanvragen bijhouden met pro-rata rechten en saldo
+                            </div>
                         </div>
-                        <div class="project-links project-1-links">
-                            <a href="https://www.figma.com/proto/zocccJ804LdE4xGCc3MZkO/MAD?node-id=0-1&t=5I19IzDtuWkDAPGW-1" target="_blank" class="btn btn-small">Live Demo</a>
+                        <div class="project-tech">
+                            <span>TypeScript</span>
+                            <span>React</span>
+                            <span>Node.js</span>
+                            <span>Express</span>
+                            <span>Firebase</span>
+                            <span>Tailwind CSS</span>
+                            <span>Redux Toolkit</span>
                         </div>
                     </div>
                 </div>
@@ -153,6 +169,9 @@
                         <p>
                              <strong>#1 Geselecteerd</strong> voor tentoonstelling Amsterdam Museum. Interactieve klimaat-ervaring waarbij bezoekers via een wiel de toekomst beïnvloeden: warme lava wereld vs groene leefwereld.
                         </p>
+                        <button class="read-more-btn" onclick="toggleReadMore(this)">Meer info <span class="arrow">&#9660;</span></button>
+                    </div>
+                    <div class="project-collapsible">
                         <div class="project-tech">
                             <span>C++</span>
                             <span>Unity</span>
@@ -181,6 +200,9 @@
                         <p>
                             Moderne, responsive portfolio website voor het presenteren van  me projecten en vaardigheden. Met dark mode, vloeiende animaties en interactieve video modal voor project demonstraties.
                         </p>
+                        <button class="read-more-btn" onclick="toggleReadMore(this)">Meer info <span class="arrow">&#9660;</span></button>
+                    </div>
+                    <div class="project-collapsible">
                         <div class="project-tech">
                             <span>HTML5</span>
                             <span>CSS3</span>
